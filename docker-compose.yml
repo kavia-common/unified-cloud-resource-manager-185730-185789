@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  database:
+    build:
+      context: ./ApplicationDatabase
+    container_name: cloud-manager-db
+    environment:
+      - DB_NAME=myapp
+      - DB_USER=appuser
+      - DB_PASSWORD=dbuser123
+      - DB_PORT=5001
+    ports:
+      - "5001:5001"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+volumes:
+  db_data:
