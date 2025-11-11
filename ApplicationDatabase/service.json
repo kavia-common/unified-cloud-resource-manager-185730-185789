@@ -1,0 +1,17 @@
+{
+  "name": "ApplicationDatabase",
+  "type": "service",
+  "description": "Cloud Manager PostgreSQL service launched via robust startup.sh",
+  "command": "bash unified-cloud-resource-manager-185730-185789/ApplicationDatabase/startup.sh",
+  "port": 5001,
+  "healthcheck": {
+    "type": "tcp",
+    "port": 5001
+  },
+  "metadata": {
+    "discoverable": true,
+    "language": "shell",
+    "framework": "postgresql",
+    "notes": "Does not call postgres directly; uses pg_ctl/initdb/pg_isready via startup.sh"
+  }
+}
